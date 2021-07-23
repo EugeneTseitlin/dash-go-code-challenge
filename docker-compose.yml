@@ -1,0 +1,8 @@
+version: "3.7"
+
+services:
+  app:
+    image: dash-code/golang-challenge-app
+    build:
+      dockerfile: docker/app/Dockerfile
+      context: .

@@ -6,11 +6,11 @@ import (
 	"os"
 	"time"
 
-	"github.com/dashevo/golang-engineer-code-challenge/internal/app/config"
-	"github.com/dashevo/golang-engineer-code-challenge/internal/app/metric"
-	"github.com/dashevo/golang-engineer-code-challenge/internal/app/network"
-	"github.com/dashevo/golang-engineer-code-challenge/internal/app/usecase"
-	"github.com/dashevo/golang-engineer-code-challenge/internal/app/util"
+	"github.com/EugeneTseitlin/dash-go-code-challenge/internal/app/config"
+	"github.com/EugeneTseitlin/dash-go-code-challenge/internal/app/metric"
+	"github.com/EugeneTseitlin/dash-go-code-challenge/internal/app/network"
+	"github.com/EugeneTseitlin/dash-go-code-challenge/internal/app/usecase"
+	"github.com/EugeneTseitlin/dash-go-code-challenge/internal/app/util"
 )
 
 func main() {

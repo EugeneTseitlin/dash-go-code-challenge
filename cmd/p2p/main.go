@@ -5,8 +5,8 @@ import (
 
 	"github.com/joho/godotenv"
 
-	"github.com/EugeneTseitlin/dash-go-code-challange/internal/p2p/server"
-	"github.com/EugeneTseitlin/dash-go-code-challange/internal/p2p/util"
+	"github.com/EugeneTseitlin/dash-go-code-challenge/internal/p2p/server"
+	"github.com/EugeneTseitlin/dash-go-code-challenge/internal/p2p/util"
 )
 
 func main() {

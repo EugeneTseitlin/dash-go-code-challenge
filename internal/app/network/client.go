@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/dashevo/golang-engineer-code-challenge/internal/app/httpclient"
-	"github.com/dashevo/golang-engineer-code-challenge/internal/app/metric"
+	"github.com/EugeneTseitlin/dash-go-code-challenge/internal/app/httpclient"
+	"github.com/EugeneTseitlin/dash-go-code-challenge/internal/app/metric"
 )
 
 const (

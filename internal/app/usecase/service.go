@@ -13,7 +13,6 @@ import (
 	"os"
 
 	"github.com/EugeneTseitlin/dash-go-code-challenge/internal/app/validation"
-	"github.com/EugeneTseitlin/dash-go-code-challenge/internal/p2p/util"
 )
 
 // Service is a service which should interact with p2p and / or self-hosted services in a network
@@ -33,7 +32,8 @@ func NewService(p2pClient, selfHostedClient *http.Client) *Service {
 // Fetch returns a fetched data
 func (s *Service) Fetch(ctx context.Context) ([]map[string]interface{}, error) {
 
-	resp, err := s.p2pClient.Get("http://localhost:8090/data")
+	p2pURL := os.Getenv("P2P_URL")
+	resp, err := s.p2pClient.Get(p2pURL + "/data")
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +73,9 @@ func (s *Service) Store(ctx context.Context, items []map[string]interface{}) err
 	v := validation.CreateValidator()
 
 	err = validation.ValidateData(v, items)
-	util.PanicError(err)
+	if err != nil {
+		return err
+	}
 
 	body, err := json.Marshal(items)
 	if err != nil {
@@ -90,7 +92,8 @@ func (s *Service) Store(ctx context.Context, items []map[string]interface{}) err
 		return err
 	}
 
-	_, err = s.p2pClient.Post("http://localhost:8090/data", "application/json", bytes.NewReader(encryptionResult))
+	p2pURL := os.Getenv("P2P_URL")
+	_, err = s.p2pClient.Post(p2pURL + "/data", "application/json", bytes.NewReader(encryptionResult))
 	if err != nil {
 		return err
 	}

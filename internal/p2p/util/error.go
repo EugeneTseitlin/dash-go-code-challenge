@@ -4,12 +4,12 @@ import "log"
 
 func LogError(err error) {
 	if err != nil {
-		log.Fatalf(err.Error())
+		log.Print(err.Error())
 	}
 }
 
 func PanicError(err error) {
 	if err != nil {
-		log.Panicf(err.Error())
+		log.Panic(err.Error())
 	}
 }

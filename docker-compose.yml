@@ -6,3 +6,19 @@ services:
     build:
       dockerfile: docker/app/Dockerfile
       context: .
+    environment:
+      AES_SECRET: "passphrasewhichneedstobe32bytes!"
+      P2P_URL: "http://p2p"
+    depends_on: 
+      - "p2p"
+  
+  p2p:
+    image: dash-code/p2p-client
+    build:
+      dockerfile: docker/p2p/Dockerfile
+      context: .
+    environment:
+      SERVER_PORT: "80"
+      DATA_PATH: "data"
+    ports:
+      - "80:80"

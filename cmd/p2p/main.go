@@ -2,6 +2,7 @@ package main
 
 import (
 	"net/http"
+	"os"
 
 	"github.com/joho/godotenv"
 
@@ -12,9 +13,9 @@ import (
 func main() {
 	var err error
 	err = godotenv.Load()
-	util.PanicError(err)
+	util.LogError(err)
 
 	router := server.CreateRouter()
-	err = http.ListenAndServe(":8090", router)
+	err = http.ListenAndServe(":" + os.Getenv("SERVER_PORT"), router)
 	util.LogError(err)
 }
